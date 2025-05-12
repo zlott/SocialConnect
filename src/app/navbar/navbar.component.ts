@@ -19,7 +19,11 @@ export class NavbarComponent {
 
   public logout(): void {
     this.authService.logout();
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('login');
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.isAuthenticated(); // Vérifie si l'utilisateur est authentifié
   }
 
 }

@@ -5,19 +5,24 @@
       <form (ngSubmit)="onSubmit()">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Enter your email</mat-label>
-          <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required />
+          <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateEmailErrorMessage()" required />
           @if (email.invalid) {
             <mat-error>{{errorMessage()}}</mat-error>
           }
           </mat-form-field>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide() ? 'password' : 'text'" />
+              <input matInput [type]="hide() ? 'password' : 'text'" [formControl]="password" />
             <button mat-icon-button matSuffix type="button" (click)="eyeClickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
-              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
             </button>
+            @if (password.invalid) {
+            <mat-error>
+              <span *ngIf="password.hasError('required')">Password is required</span>
+              <span *ngIf="password.hasError('minlength')">Password must be at least 2 characters long</span>
+            </mat-error>
+            }
           </mat-form-field>
-      
         <button mat-raised-button color="primary" type="submit" class="full-width">Login</button>
       </form>
     </mat-card-content>

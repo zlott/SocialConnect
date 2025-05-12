@@ -3,14 +3,16 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>SocialConnect</span>
-  <a mat-icon-button [routerLink]="['/users']" aria-label="Profile">
+  
+  <!-- Boutons affichés uniquement si l'utilisateur est authentifié -->
+  <a *ngIf="isLoggedIn()" mat-icon-button [routerLink]="['/users']" aria-label="Profile">
     <mat-icon>account_circle</mat-icon>
   </a>
-  <a mat-icon-button aria-label="Favorites" [routerLink]="['/likes']">
+  <a *ngIf="isLoggedIn()" mat-icon-button aria-label="Favorites" [routerLink]="['/likes']">
     <mat-icon>favorite</mat-icon>
   </a>
   <span class="spacer"></span>
-  <button (click)="logout()" mat-icon-button aria-label="Logout">
+  <button *ngIf="isLoggedIn()" (click)="logout()" mat-icon-button aria-label="Logout">
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>

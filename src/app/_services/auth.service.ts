@@ -8,17 +8,19 @@ export class AuthService {
   
 
   login(email: string, password: string): boolean {
-    console.log('Login called with email:' + email);
-    localStorage.setItem('token', 'email'); // Exemple : vérifiez un token
+    if(email != 'foo@foo.foo' || password != 'foo') {
+      return false;
+    }
+    sessionStorage.setItem('token', email); // Stocke le token dans sessionStorage
     return true;
   }
 
-  logout() {
-    localStorage.removeItem('token');
+  logout(): void {
+    sessionStorage.removeItem('token'); // Supprime le token de sessionStorage
   }
 
   isAuthenticated(): boolean {
-    const authenticated = !!localStorage.getItem('token'); // Exemple : vérifiez un token
+    const authenticated = !!sessionStorage.getItem('token'); // Vérifie le token dans sessionStorage
     return authenticated;
   }
   
