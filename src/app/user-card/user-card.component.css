@@ -1,0 +1,41 @@
+mat-card {
+    padding: 16px;
+    background-color: #310636;
+}
+
+mat-card.liked {
+    border: 2px solid red;
+}
+
+
+mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: lightgray;
+}
+
+mat-card-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: lightgray;
+}
+
+mat-card-content p {
+    font-size: 1rem;
+    color: lightgray;
+    margin: 0;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+mat-card-header img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 0 auto;
+}

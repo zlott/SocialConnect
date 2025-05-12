@@ -1,0 +1,18 @@
+<div class="user-details">
+  <h2>User Details</h2>
+  @if (user$ | async; as user) {
+    <div>
+    <img [src]="user.avatar" alt="{{ user.email }}" />
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+    </div>
+  } @else {
+    <p>Loading...</p>
+  }
+</div>
+<a [routerLink]="'/users'">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_circle_left"></mat-icon>
+</a>
+<!-- https://jossef.github.io/material-design-icons-iconfont/ -->

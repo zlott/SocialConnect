@@ -1,0 +1,12 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar a {
+  margin: 0 8px; /* Ajoute un espacement horizontal entre les boutons */
+  color: darkorchid; /* Change la couleur du texte des boutons */
+}
+
+mat-toolbar span {
+  margin: 0 16px; /* Ajoute un espacement autour du texte "SocialConnect" */
+}

@@ -1,0 +1,25 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required />
+          @if (email.invalid) {
+            <mat-error>{{errorMessage()}}</mat-error>
+          }
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide() ? 'password' : 'text'" />
+            <button mat-icon-button matSuffix type="button" (click)="eyeClickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+      
+        <button mat-raised-button color="primary" type="submit" class="full-width">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,15 @@
+.user-details {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.user-details img {
+  /* border-radius: 50%; */
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+.user-details p {
+  margin: 5px 0;
+}
